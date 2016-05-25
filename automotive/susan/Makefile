@@ -1,5 +1,9 @@
+all: susan objects
+
 susan: susan.c Makefile
-	gcc -static -O4 -o susan susan.c -lm 
+	${CC} -static ${OPT} -o ../../out/susan.${TGT} susan.c -lm 
+objects:
+	${CC} ${OPT} susan.c -c -o ../../out/susan.o.${TGT} -lm
 
 clean:
 	rm -rf susan output*

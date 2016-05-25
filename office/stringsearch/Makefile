@@ -4,10 +4,10 @@ FILE2 = bmhasrch.c  bmhisrch.c  bmhsrch.c  pbmsrch_large.c
 all: search_small search_large
 
 search_small: ${FILE1} Makefile
-	gcc -static ${FILE1} -O3 -o search_small
+	${CC} -static ${FILE1} ${OPT} -o ../../out/search_small.${TGT}
 
 search_large: ${FILE2} Makefile
-	gcc -static ${FILE2} -O3 -o search_large
+	${CC} -static ${FILE2} ${OPT} -o ../../out/search_large.${TGT}
 
 clean:
 	rm -rf search_small search_large output*

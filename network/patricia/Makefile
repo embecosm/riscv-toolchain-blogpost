@@ -1,5 +1,5 @@
 patricia: patricia.c patricia_test.c
-	gcc -static patricia.c patricia_test.c -O3 -o patricia
+	${CC} -static patricia.c patricia_test.c ${OPT} -o ../../out/patricia.${TGT}
 
 clean:
 	rm -rf patricia output*
