@@ -1,0 +1,12 @@
+*.x86_64gcc
+*.x86_64clang
+*.riscv64gcc
+*.riscv64clang
+*.riscv32gcc
+*.riscv32clang
+*.aarch64gcc
+*.aarch64clang
+*.armv7agcc
+*.armv7mgcc
+*.armv8agcc
+*.armv8mgcc
