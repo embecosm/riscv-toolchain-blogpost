@@ -24,8 +24,8 @@ following four variables to edit:
   need prepending for a given configuration, use the empty string `''`.
 - `toolchain_args`: The compiler flags for each configuration are given here.
   Some compilers require more flags than others in order to successfully
-  compile for their target, but all us `-Os` in order to generate code optimised
-  for size.
+  compile for their target, but all use `-Os` in order to generate code
+  optimised for size.
 - `toolchain_cc`: This specifies the name of the compiler for each
   configuration.
 
@@ -35,7 +35,7 @@ Once you have made appropriate edits, you can build all outputs by running:
 ./build_all.py
 ```
 
-The `process.py` determines the code size of all objects and outputs a summary
+`process.py` determines the code size of all objects and outputs a summary
 table for all objects and configurations. If you have removed any of the
 configurations from `build_all.py`, you will need to remove them from
 `process.py` as well. If you only want to see a summary for a subset of
