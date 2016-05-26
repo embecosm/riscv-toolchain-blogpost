@@ -2,10 +2,10 @@ RISC-V compiler toolchain code size benchmarks
 ==============================================
 
 This repository accompanies the blog post [RISC-V Compiler Performance Part 1:
-Code Size Comparisons](http://embecosm.com/blog/). All code and scripts used to
-generate the data featured in the blog post is contained within this repository,
-along with some extra configurations for architectures not discussed in the blog
-post.
+Code Size Comparisons](http://www.embecosm.com/2016/05/26/risc-v-compiler-performance-part-1-code-size-comparisons/).
+All code and scripts used to generate the data featured in the blog post is
+contained within this repository, along with some extra configurations for
+architectures not discussed in the blog post.
 
 The scripts have been run on a Fedora 23 machine with Python 3.4. It is expected
 that they will run unmodified on any Linux or OS X machine, but execution on
