@@ -5,10 +5,10 @@ from subprocess import Popen
 
 TOPDIR = os.path.abspath(os.path.dirname(__file__))
 
-arches = [ 'x86_64gcc', 'x86_64clang',
-           'riscv32gcc', 'riscv32clang',
-           'riscv64gcc', 'riscv64clang',
-           'armv7mgcc', 'armv8mgcc', 'armv8agcc' ]
+configurations = [ 'x86_64gcc', 'x86_64clang',
+                   'riscv32gcc', 'riscv32clang',
+                   'riscv64gcc', 'riscv64clang',
+                   'armv7mgcc', 'armv8mgcc', 'armv8agcc' ]
 
 toolchain_paths = {
     'x86_64gcc': '',
@@ -51,17 +51,17 @@ toolchain_cc = {
     'armv8agcc': 'arm-none-eabi-gcc',
 }
 
-def make_env(arch):
+def make_env(config):
     e = os.environ.copy()
-    e['PATH'] = '%s:%s' % (toolchain_paths[arch], os.environ['PATH'])
-    e['TGT'] = arch
-    e['OPT'] = toolchain_args[arch]
-    e['CC'] = toolchain_cc[arch]
+    e['PATH'] = '%s:%s' % (toolchain_paths[config], os.environ['PATH'])
+    e['TGT'] = config
+    e['OPT'] = toolchain_args[config]
+    e['CC'] = toolchain_cc[config]
 
     return e
 
-for arch in arches:
-    env = make_env(arch)
+for config in configurations:
+    env = make_env(config)
     args = ['make']
     proc = Popen(args, env=env, cwd=TOPDIR)
     retcode = proc.wait()

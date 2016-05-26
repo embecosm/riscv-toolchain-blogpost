@@ -3,17 +3,17 @@
 from glob import glob
 from subprocess import check_output
 
-arches = [ 'x86_64gcc', 'x86_64clang',
-           'riscv32gcc', 'riscv32clang',
-           'riscv64gcc', 'riscv64clang',
-           'armv7mgcc', 'armv8mgcc', 'armv8agcc' ]
+configurations = [ 'x86_64gcc', 'x86_64clang',
+                   'riscv32gcc', 'riscv32clang',
+                   'riscv64gcc', 'riscv64clang',
+                   'armv7mgcc', 'armv8mgcc', 'armv8agcc' ]
 objs = set()
 
 results = {}
 
-for arch in arches:
+for config in configurations:
     sizes = {}
-    for f in glob('out/*.%s' % arch):
+    for f in glob('out/*.%s' % config):
         # Only look at object files, not whole executables
         if '.o.' not in f:
             continue
@@ -35,10 +35,10 @@ for arch in arches:
                 size += this_size
                 sizes[name] = size
 
-    results[arch] = sizes
+    results[config] = sizes
 
-print('Object\t%s' % ('\t'.join(arches)))
+print('Object\t%s' % ('\t'.join(configurations)))
 
 for obj in sorted(objs):
-    sizes = '\t'.join([ str(results[arch][obj]) for arch in arches ])
+    sizes = '\t'.join([ str(results[config][obj]) for config in configurations ])
     print('%s\t%s' % (obj, sizes))
