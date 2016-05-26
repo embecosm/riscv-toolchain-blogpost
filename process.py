@@ -3,13 +3,18 @@
 from glob import glob
 from subprocess import check_output
 
+# The list of configurations that will be summarised. Delete any from this list
+# that you have not build with build_all.py, and and that you don't want to see
+# the summary output for.
 configurations = [ 'x86_64gcc', 'x86_64clang',
                    'riscv32gcc', 'riscv32clang',
                    'riscv64gcc', 'riscv64clang',
                    'armv7mgcc', 'armv8mgcc', 'armv8agcc' ]
-objs = set()
 
+objs = set()
 results = {}
+
+# Read all objects and find their code sizes
 
 for config in configurations:
     sizes = {}
@@ -36,6 +41,9 @@ for config in configurations:
                 sizes[name] = size
 
     results[config] = sizes
+
+
+# Output summary table
 
 print('Object\t%s' % ('\t'.join(configurations)))
 
